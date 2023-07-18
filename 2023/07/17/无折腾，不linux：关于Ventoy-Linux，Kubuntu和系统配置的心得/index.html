@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得 | 溢光亭</title><meta name="author" content="rockeyleo"><meta name="copyright" content="rockeyleo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言一切的一切都要从两年前开始讲起。 2021年暑假，我知晓了wintogo这种系统形式的存在。心血来潮，在网上购入了一块三星的U盘。 那时候对wtg的性能要求没什么概念，也并没有也不知道选择带有wtg认证的设备。这是一个后来令我十分痛苦的决定。 之后不短的一段时间，我在学校机房使用的一直是自己的wtg。期间windows11推出，就升级到了win11。但是，由于U盘孱弱的4k读写性能（另一方面，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得">
+<meta property="og:url" content="http://example.com/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="溢光亭">
+<meta property="og:description" content="前言一切的一切都要从两年前开始讲起。 2021年暑假，我知晓了wintogo这种系统形式的存在。心血来潮，在网上购入了一块三星的U盘。 那时候对wtg的性能要求没什么概念，也并没有也不知道选择带有wtg认证的设备。这是一个后来令我十分痛苦的决定。 之后不短的一段时间，我在学校机房使用的一直是自己的wtg。期间windows11推出，就升级到了win11。但是，由于U盘孱弱的4k读写性能（另一方面，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/cover.jpg">
+<meta property="article:published_time" content="2023-07-17T15:37:58.000Z">
+<meta property="article:modified_time" content="2023-07-18T15:04:10.017Z">
+<meta property="article:author" content="rockeyleo">
+<meta property="article:tag" content="折腾不止">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="kubuntu">
+<meta property="article:tag" content="linux to go">
+<meta property="article:tag" content="ventoy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/cover.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-18 23:04:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/cover.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="溢光亭"><span class="site-name">溢光亭</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-07-17T15:37:58.000Z" title="Created 2023-07-17 23:37:58">2023-07-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-07-18T15:04:10.017Z" title="Updated 2023-07-18 23:04:10">2023-07-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一切的一切都要从两年前开始讲起。</p>
+<p>2021年暑假，我知晓了wintogo这种系统形式的存在。心血来潮，在网上购入了一块三星的U盘。</p>
+<p>那时候对wtg的性能要求没什么概念，也并没有也不知道选择带有wtg认证的设备。这是一个后来令我十分痛苦的决定。</p>
+<p>之后不短的一段时间，我在学校机房使用的一直是自己的wtg。期间windows11推出，就升级到了win11。但是，由于U盘孱弱的4k读写性能（另一方面，我一直怀疑我盘的4k性能尤其糟糕，不知道与前期格盘过多是否有关），恼人的迟滞和卡顿一直伴随在从开机到关机的每一个过程中，即使关闭windows update、使用内存盘也难以缓解，windows较大的系统体积也使64G的有限空间更加捉襟见肘。考虑到没有必要<del>也没有钱</del>再买一块新的固态硬盘，在一次失手（这就牵扯到了另一个有关于学校大屏的狗血故事，有空可以写写）搞炸了自己的wintogo之后，我决定投入linux的怀抱。</p>
+<p>但这其实并不是我第一次接触linux。在学校机房时，我就在另一位dalao的帮助下，和老师一起给两三台电脑安装过ubuntu 22.04，并在其上部署了oj。当时就吃了不少苦头，走了不少弯路。于是，在开始我的折腾之路的时候，我非常自信，以为这一次能够快速拿下，之后就被打脸了。人是不长记性的动物，尤其是我这种，记性尤其差。当时配置的很多细节现在都忘了，结果还是要从头再来，文档也要重翻一边，何况又出现了巨量的新问题。所以，这次我决定写点东西记下来，一方面保证下次不再走弯路，另一方面大概也可以让后来人也少走一点弯路。</p>
+<p>如果要问这篇有什么具体的价值，那大概是缝合了一大堆其他大佬的优秀文章，以整个配置流程为主线来撰写博客，并且给出了有关kubuntu这个既是ubuntu，又不完全是ubuntu的存在的配置的一些讨论。总之，让我们开始吧！</p>
+<h1 id="Ventoy的配置"><a href="#Ventoy的配置" class="headerlink" title="Ventoy的配置"></a>Ventoy的配置</h1><h2 id="Ventoy本体的安装和配置"><a href="#Ventoy本体的安装和配置" class="headerlink" title="Ventoy本体的安装和配置"></a>Ventoy本体的安装和配置</h2><p>Ventoy的使用体验还是非常愉快的。有清晰的中文资料，安装配置也不算复杂，只是当时配置安全启动证书的过程让我十分摸不到头脑。殊不知，安全启动这个噩梦还会在后来继续折磨我。</p>
+<p>要使用Ventoy安装虚拟磁盘系统，可以参考<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/plugin_vtoyboot.html">这篇文档</a>。</p>
+<p>需要注意的是，ventoy官方文档中提到，virtualbox中生成的虚拟硬盘文件必须是固定大小（即预先分配全部空间），对于一个较大的虚拟磁盘，这的确有一定的不便，但是，如果使用动态大小，根据另外一位同学的经验，可能会导致虚拟磁盘文件的实际大小不受控制地增加，但具体情况需要进一步实践来验证。</p>
+<p>ventoy只支持vdi和vhd文件，不支持vhdx。如果你使用vdi作为虚拟磁盘格式，且需要复制虚拟磁盘文件，请<strong>使用virtualbox自带的VBoxManage工具，否则将会在注册虚拟磁盘时报错。</strong>在windows中它会位于virtualbox的根目录下。如果你不幸已经使用这种方式复制了一个超大容量的静态大小虚拟磁盘，为了节省时间，可以直接重设新磁盘的uuid，达到一样的效果。</p>
+<p>要复制，可以在virtualbox的根目录下使用：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManager clonevdi [原文件路径] [新文件路径]</span><br></pre></td></tr></table></figure>
+
+<p>要重新分配uuid。可以输入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage internalcommands sethduuid [文件路径]</span><br></pre></td></tr></table></figure>
+
+<p>来改变虚拟磁盘的uuid。</p>
+<p>令人无语的是，当你直接复制vdi文件并尝试注册复制出的文件时，virtual box并不会向你指出导致错误的具体原因（当然也可能是因为日志标注过于抽象导致我看不懂），只能凭借自行搜索来解决。</p>
+<h2 id="发行版大乱斗"><a href="#发行版大乱斗" class="headerlink" title="发行版大乱斗"></a>发行版大乱斗</h2><p>在使用萝卜头论坛的wtg制作工具的时候，对系统的选择是有限的，并且更换系统就需要再次格盘，而Ventoy的存在，让整个过程得以更为灵活自由。我先后尝试了Manjaro，fedora和ubuntu。需要注意，在virtualbox中配置Manjaro时，需要分配比较高的内存，否则可能会导致开机卡死或黑屏。<del>当时折腾了好长时间也没找出原因</del>。</p>
+<p>Ventoy默认将U盘的主分区格式化为exFAT格式，这个分区可以手动格式化为NTFS，不过安装linux不建议改变，不确定是否会影响。</p>
+<p>还有一点，每次遇到系统内核或驱动更新时，都要重新安装vtoyboost插件。不知道为什么，fedora在我的一次开机时突然进入自动更新，<del>之后就成功把我的引导干碎了</del>，需要注意。</p>
+<h2 id="安全启动"><a href="#安全启动" class="headerlink" title="安全启动"></a>安全启动</h2><blockquote>
+<p>so fuck you, Microsoft.</p>
+</blockquote>
+<p>Arch系系统默认不支持安全启动。要使用安全启动，可以参考这两篇文章:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/616940828?utm_id=0">2023 archlinux 启用 Secure Boot (安全启动) 的最简单方法 – sbctl</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/620568516">在Arch Linux中配置安全启动（Secure Boot)</a></p>
+<p>虽然fedora和ubuntu（debian）通过shim理论上支持安全启动，但在我的设备（联想小新Pro16 2021ACH锐龙版）上，始终无法在安全启动启用下成功引导系统。但令人诧异的是，Ventoy的选择菜单是可以正常使用的。</p>
+<h1 id="一些系统配置的细节"><a href="#一些系统配置的细节" class="headerlink" title="一些系统配置的细节"></a>一些系统配置的细节</h1><h2 id="KDE的安装"><a href="#KDE的安装" class="headerlink" title="KDE的安装"></a>KDE的安装</h2><p>我一开始打算装Manjaro的原因，按照我尚浅薄的linux使用经验，说是完全因为喜爱pacman，那是一点也不诚实的。另外的重要的原因，是Manjaro有社区维护的KDE版本，而在之前和gnome的接触，使我萌生了换换口味的想法。于是，我试图在ubuntu上手动安装KDE。是的，那个时候我还不知道Kubuntu的存在。</p>
+<p>对于ubuntu用户来说，可以使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install kubuntu-desktop</span><br></pre></td></tr></table></figure>
+
+<p>来安装KDE桌面，理论上来说，这与直接安装kubuntu没有区别。</p>
+<h2 id="配置静态ip"><a href="#配置静态ip" class="headerlink" title="配置静态ip"></a>配置静态ip</h2><p>在机房使用时，</p>
+<p>我可以确定的是，gnome下的普通ubuntu并没有这个问题，这很大可能是KDE的问题。</p>
+<p>通过搜索发现，这似乎是kubuntu的一个老bug。在很早的时候，就有人在网络上提出这个问题。解决方法是直接使用命令行配置。</p>
+<p>ubuntu从17.01开始使用netplan（而非&#x2F;etc&#x2F;network&#x2F;interfaces）配置网络设置。总体流程可参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45949008/article/details/118862854">Ubuntu Server20.04 静态ip配置（netplan）</a></p>
+<p>网卡的名称可以利用<code>ip a</code>查询。</p>
+<p>应用配置之前，可以使用<code>sudo netplan try</code>测试配置是否存在问题。之后该配置可以在网络设置中正常显示。</p>
+<p>最简配置可以是这样的：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 01-network-manager-all.yaml</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">renderer:</span> <span class="string">NetworkManager</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">enp2s0:</span>		<span class="string">//网卡名称</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">no</span>		<span class="string">//关闭dhcp</span></span><br><span class="line">      <span class="attr">addresses:</span> [<span class="number">10.160</span><span class="number">.219</span><span class="number">.43</span><span class="string">/24</span>]		<span class="string">//注意这里/后要填写子网掩码。如点分十进制255.255.255.0对应为24</span></span><br><span class="line">      <span class="attr">gateway4:</span> <span class="number">10.160</span><span class="number">.219</span><span class="number">.254</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span> [<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>]</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;24的24指的是这个掩码由连续的24个1组成，按照点分二进制，表示为11111111.11111111.11111111.11111111.00000000，即255.255.255.0。有关掩码的一些的问题，有时间以后单独写。</p>
+<h2 id="有关科学上网"><a href="#有关科学上网" class="headerlink" title="有关科学上网"></a>有关科学上网</h2><p>不知道为什么，在我的系统中qv2ray配置后切换节点将造成剧烈卡顿，切换后也无法正常工作，几分钟后报错崩溃。目前qv2ray已经停止维护，不再推荐使用。可以选择<a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2rayA">qv2rayA</a>作为替代。</p>
+<p>clash方面，clash内核可以在linux下正常运行，注意配置开机启动即可。另外，在windows下非常流行的<a target="_blank" rel="noopener" href="https://github.com/Fndroid/clash_for_windows_pkg/releases">clash for windows</a> GUI终端在linux上同样可用。是的，你没看错。linux下还可以使用<a target="_blank" rel="noopener" href="https://github.com/SpongeNobody/Clashy">clashy</a></p>
+<p>KDE的全局代理设置不一定可以在所有情况下使用，可以借助CFW的tun模式，或在软件中单独设置代理。clash的http(s)代理端口默认为7890，socks为7891。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">rockeyleo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/">http://example.com/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/">折腾不止</a><a class="post-meta__tags" href="/tags/ubuntu/">ubuntu</a><a class="post-meta__tags" href="/tags/kubuntu/">kubuntu</a><a class="post-meta__tags" href="/tags/linux-to-go/">linux to go</a><a class="post-meta__tags" href="/tags/ventoy/">ventoy</a></div><div class="post_share"><div class="social-share" data-image="/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/07/17/hello-world/" title="Hello World"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">rockeyleo</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/rockeyleo" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/rockeyleo@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ventoy%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">Ventoy的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ventoy%E6%9C%AC%E4%BD%93%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">Ventoy本体的安装和配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E8%A1%8C%E7%89%88%E5%A4%A7%E4%B9%B1%E6%96%97"><span class="toc-number">2.2.</span> <span class="toc-text">发行版大乱斗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8"><span class="toc-number">2.3.</span> <span class="toc-text">安全启动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">3.</span> <span class="toc-text">一些系统配置的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#KDE%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">3.1.</span> <span class="toc-text">KDE的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="toc-number">3.2.</span> <span class="toc-text">配置静态ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-number">3.3.</span> <span class="toc-text">有关科学上网</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/" title="无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得"><img src="/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得"/></a><div class="content"><a class="title" href="/2023/07/17/%E6%97%A0%E6%8A%98%E8%85%BE%EF%BC%8C%E4%B8%8Dlinux%EF%BC%9A%E5%85%B3%E4%BA%8EVentoy-Linux%EF%BC%8CKubuntu%E5%92%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%BF%83%E5%BE%97/" title="无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得">无折腾，不linux：关于Ventoy-Linux，Kubuntu和系统配置的心得</a><time datetime="2023-07-17T15:37:58.000Z" title="Created 2023-07-17 23:37:58">2023-07-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/17/hello-world/" title="Hello World"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2023/07/17/hello-world/" title="Hello World">Hello World</a><time datetime="2023-07-16T18:15:03.597Z" title="Created 2023-07-17 02:15:03">2023-07-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By rockeyleo</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
